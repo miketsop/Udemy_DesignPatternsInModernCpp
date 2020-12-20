@@ -75,24 +75,6 @@ struct TransparentShape : Shape
     }
 };
 
-// ====================================================
-// Static decorators
-// ====================================================
-/*
-    Concept (introduced in c++20)
-*/
-template<typename T>
-concept isAShape = std::is_base_of(Shape, T)::value;
-
-template <isAShape T>
-struct ColoredShape2 : T
-{
-    string color;
-    ColoredShape2(){}
-    template<typename...Args>
-    ColoredShape2(const string& color, Args ...args) : T(std::forward<Args>(args)...);
-};
-
 int main()
 {
     Square circle{5}, square{2};
@@ -104,6 +86,7 @@ int main()
     cout << mysquare.str() << endl;
 
     // ColoredShape2<Circle> redCircle;
+
     return  0;
 }
 
