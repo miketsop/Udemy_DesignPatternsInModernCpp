@@ -9,7 +9,7 @@ using namespace std;
 
 class Creature {
     enum Abilities {strength, agility, intelligence, count};
-    array<int, count> abilities;
+    array<int, count> abilities;    //  Fixed size container
 
 public:
     int get_strength(){return abilities[strength];}
